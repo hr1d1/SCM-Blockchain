@@ -1,2 +1,2 @@
 # SCM-Blockchain
-Thesid SCMBC
+Thesis SCMBC
