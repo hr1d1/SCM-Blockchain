@@ -1,0 +1,697 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "addr",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prodId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "txnAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentDone",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prod_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner_id",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "prod_name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "avaiableUnits",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "drug_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "drug_class",
+								"type": "string"
+							},
+							{
+								"internalType": "int256",
+								"name": "storage_temp",
+								"type": "int256"
+							},
+							{
+								"internalType": "string[]",
+								"name": "ingredients",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string[]",
+								"name": "mfg_date",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string[]",
+								"name": "exp_date",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string",
+								"name": "batch_no",
+								"type": "string"
+							},
+							{
+								"internalType": "string[]",
+								"name": "sideEffects",
+								"type": "string[]"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct PSCMBC.Description",
+						"name": "prod_desc",
+						"type": "tuple"
+					}
+				],
+				"name": "ProductCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user_id",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "org_name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "user_type",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "TIN",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					}
+				],
+				"name": "UserCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "prodId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "buy_product",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "bought",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "pn",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pr",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "au",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "dn",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dc",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "st",
+						"type": "int256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "i",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "md",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "ed",
+						"type": "string[]"
+					},
+					{
+						"internalType": "string",
+						"name": "bn",
+						"type": "string"
+					},
+					{
+						"internalType": "string[]",
+						"name": "se",
+						"type": "string[]"
+					}
+				],
+				"name": "create_prod",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "ut",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "on",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "pass",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "TIN",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "loc",
+						"type": "string"
+					}
+				],
+				"name": "create_user",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "add",
+						"type": "address"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "getBalance2",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "getProd",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "prod_id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "owner_id",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "prod_name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "avaiableUnits",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "drug_name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "drug_class",
+										"type": "string"
+									},
+									{
+										"internalType": "int256",
+										"name": "storage_temp",
+										"type": "int256"
+									},
+									{
+										"internalType": "string[]",
+										"name": "ingredients",
+										"type": "string[]"
+									},
+									{
+										"internalType": "string[]",
+										"name": "mfg_date",
+										"type": "string[]"
+									},
+									{
+										"internalType": "string[]",
+										"name": "exp_date",
+										"type": "string[]"
+									},
+									{
+										"internalType": "string",
+										"name": "batch_no",
+										"type": "string"
+									},
+									{
+										"internalType": "string[]",
+										"name": "sideEffects",
+										"type": "string[]"
+									}
+								],
+								"internalType": "struct PSCMBC.Description",
+								"name": "prod_desc",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct PSCMBC.Product",
+						"name": "p",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "products",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "prod_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner_id",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "prod_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "avaiableUnits",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "drug_name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "drug_class",
+								"type": "string"
+							},
+							{
+								"internalType": "int256",
+								"name": "storage_temp",
+								"type": "int256"
+							},
+							{
+								"internalType": "string[]",
+								"name": "ingredients",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string[]",
+								"name": "mfg_date",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string[]",
+								"name": "exp_date",
+								"type": "string[]"
+							},
+							{
+								"internalType": "string",
+								"name": "batch_no",
+								"type": "string"
+							},
+							{
+								"internalType": "string[]",
+								"name": "sideEffects",
+								"type": "string[]"
+							}
+						],
+						"internalType": "struct PSCMBC.Description",
+						"name": "prod_desc",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFund",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "sufficient",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "user_id",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "org_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "user_type",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "TIN",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "location",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/pscmbc.sol": "PSCMBC"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/pscmbc.sol": {
+			"keccak256": "0x900ea939c3307dcea3c12da53a838c5536821e46d340a700d88cc7ada21fc99f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://792f42fdcf055b5a3398b0938c2f4b061d10f31500fa702e84b0ed8e9a977977",
+				"dweb:/ipfs/QmZt9vHxfAWF9VNuF18ZZKb51JK78B3mTfR1As8Q6r1zCE"
+			]
+		}
+	},
+	"version": 1
+}
